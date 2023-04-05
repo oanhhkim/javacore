@@ -2,7 +2,7 @@ package main;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class Sort {
 
   Scanner scanner = new Scanner(System.in);
 
@@ -14,11 +14,7 @@ public class BubbleSort {
     }
     return arr;
   }
-//  public void swap(int x, int y){
-//    int temp = x;
-//    x = y;
-//    y = temp;
-//  }
+
 
 
   public int[] bubbleSort(int[] arr) {
@@ -33,6 +29,19 @@ public class BubbleSort {
     }
     return arr;
   }
+  public int[] insertSort(int[] arr){
+    for(int i = 1; i<arr.length; i++){
+      int val = arr[i];
+      int index = i - 1;
+      while(index>=0 && arr[index]>val){
+        arr[index+1] = arr[index];
+        index = index - 1;
+      }
+      arr[index+1] = val;
+    }
+
+    return arr;
+  }
   public void display(int[] arr){
     for(int i = 0; i<arr.length; i++){
       System.out.print(arr[i]+" ");
@@ -40,10 +49,11 @@ public class BubbleSort {
   }
 
   public static void main(String[] args) {
-    BubbleSort bubbleSort = new BubbleSort();
-    int[] arr = bubbleSort.input();
-    int[] b = bubbleSort.bubbleSort(arr);
-    bubbleSort.display(b);
+    Sort sort = new Sort();
+    int[] arr = sort.input();
+//    int[] b = bubbleSort.bubbleSort(arr);
+    int[] b = sort.insertSort(arr);
+    sort.display(b);
 
 
   }
