@@ -1,44 +1,31 @@
 package main;
 
 import java.util.Scanner;
+import util.ScannerUtil;
+import util.SortUtil;
 
 public class InsertSort{
 
-  Scanner scanner = new Scanner(System.in);
 
-  public int[] input() {
-    int n = scanner.nextInt();
+  public static int[] input() {
+    int n = ScannerUtil.SCANNER.nextInt();
     int[] arr = new int[n];
     for (int i = 0; i < n; i++) {
-      arr[i] = scanner.nextInt();
+      arr[i] = ScannerUtil.SCANNER.nextInt();
     }
     return arr;
   }
 
-  public int[] insertSort(int[] arr) {
-    for (int i = 1; i < arr.length; i++) {
-      int val = arr[i];
-      int index = i - 1;
-      while (index >= 0 && arr[index] > val) {
-        arr[index + 1] = arr[index];
-        index = index - 1;
-      }
-      arr[index + 1] = val;
-    }
-    return arr;
-  }
-
-  public void display(int[] arr) {
+  public static void display(int[] arr) {
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
   }
 
   public static void main(String[] args) {
-    InsertSort sort = new InsertSort();
-    int[] arr = sort.input();
-    int[] b = sort.insertSort(arr);
-    sort.display(b);
+    int[] arr = input();
+    int[] b = SortUtil.insertSort(arr);
+    display(b);
   }
 
 }
