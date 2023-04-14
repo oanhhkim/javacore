@@ -27,7 +27,7 @@ public class Eratosthenes {
 
   public void display(int n) {
     for (int i = 0; i <= n; i++) {
-      if (prime[i] == 1) {
+      if (prime[i]==1) {
         System.out.print(i + " ");
       }
     }
@@ -36,6 +36,7 @@ public class Eratosthenes {
   public static void main(String[] args) {
     Eratosthenes sieve = new Eratosthenes();
     int n = sieve.input();
+    sieve.eratosthenes(n);
     sieve.display(n);
   }
 }
